@@ -15,11 +15,11 @@ Dataset structure :
 Data will be available in raw form for which we perform data preprocessing.
 
 Raw data: (movies.csv)
-movieId	title	genres
+columns : movieId	title	genres
 
 PreProcessed Data:
 code: data_preparation.py
-movieId	title	genres	year	Adventure	Animation	Children	Comedy	Fantasy	Romance	Drama	Action	Crime	Thriller	Horror	Mystery	Sci-Fi	IMAX	Documentary	War	Musical	Western	Film-Noir	(no genres listed)	imdbId
+columns : movieId	title	genres	year	Adventure	Animation	Children	Comedy	Fantasy	Romance	Drama	Action	Crime	Thriller	Horror	Mystery	Sci-Fi	IMAX	Documentary	War	Musical	Western	Film-Noir imdbId
 
 
 Note : This data has to placed in recommendationPage folder.
