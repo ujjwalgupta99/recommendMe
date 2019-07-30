@@ -61,5 +61,3 @@ dmain.to_csv('movie_withgenres.csv')
 
 
 
-d.shape
-
