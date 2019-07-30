@@ -1,23 +1,15 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
 
 
 import pandas as pd
 import numpy as np
 
-
-# In[2]:
-
-
 dm=pd.read_csv('movies.csv')
 print(dm.head(10))
 print(dm.shape)
 dg=dm.copy()
-
-
-# In[7]:
 
 
 #spliting dates with movie name
@@ -46,16 +38,11 @@ dm['title'] = dm['title'].apply(lambda x: x.strip())
 dm.head()
 
 
-# In[9]:
-
-
 cleaned=dm.set_index('title').genres.str.split('|',expand=True).stack()
 df=pd.get_dummies(cleaned).groupby(level=0).sum()
 df=df.drop('(no genres listed)',axis=1)
 df.head()
 
-
-# In[10]:
 
 
 de=dm.iloc[:,0:2]
@@ -63,27 +50,15 @@ de['year']=dm['year']
 de.head()
 
 
-# In[11]:
-
 
 dv=df.merge(de,how='inner',left_on='title',right_on='title').sort_values(by='movieId')
-
-
-# In[12]:
-
 
 dmain=pd.DataFrame(dv)
 dmain=dmain.reset_index(drop=True)
 dmain.to_csv('movie_withgenres.csv')
 
 
-# In[99]:
 
-
-d=pd.read_csv('movie_withgenres.csv')
-
-
-# In[100]:
 
 
 d.shape
