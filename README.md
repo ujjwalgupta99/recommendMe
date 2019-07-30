@@ -4,4 +4,4 @@ Movie Recommendation Engine based on Content based recommendation system using P
 It uses ratings of users and gives recommendation based on that recommendation
 
 
-Kindly read datasetSpecifications.txt then proceed to code.
+Kindly read datasetSpecifications.txt and data_preparation.py for data preprocessing suitable for code
