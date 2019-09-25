@@ -6,18 +6,6 @@ import json
 
 
 
-
-# our main movie data
-
-
-
-
-
-
-
-
-    #example imput from user data
-
 def mainP(input_movies):
     dm=pd.read_csv('recommendationPage/movie_data.csv')                      # movie database
     dm=dm.iloc[:,1:]
