@@ -22,35 +22,21 @@ dg=dm.copy()
 dg.to_csv('xyz.csv')
 
 
-# In[8]:
 
-
-#Using regular expressions to find a year stored between parentheses
-#We specify the parantheses so we don't conflict with movies that have years in their titles
-dm['year'] = dm.title.str.extract('(\(\d\d\d\d\))',expand=False)
-#Removing the parentheses
-dm['year'] = dm.year.str.extract('(\d\d\d\d)',expand=False)
-#Removing the years from the 'title' column
-dm['title'] = dm.title.str.replace('(\(\d\d\d\d\))', '')
-#Applying the strip function to get rid of any ending whitespace characters that may have appeared
-dm['title'] = dm['title'].apply(lambda x: x.strip())
-
-dm.head()
-
-
+#only genre data hot encoding 
 cleaned=dm.set_index('title').genres.str.split('|',expand=True).stack()
 df=pd.get_dummies(cleaned).groupby(level=0).sum()
 df=df.drop('(no genres listed)',axis=1)
 df.head()
 
 
-
+#taking only year
 de=dm.iloc[:,0:2]
 de['year']=dm['year']
 de.head()
 
 
-
+#merging both year and genre
 dv=df.merge(de,how='inner',left_on='title',right_on='title').sort_values(by='movieId')
 
 dmain=pd.DataFrame(dv)
