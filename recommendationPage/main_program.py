@@ -37,12 +37,12 @@ def mainP(input_movies):
 
     # adding genres to our input data
 
-    df=di.merge(dm,how='inner',left_on='title',right_on='title')
-    df=pd.DataFrame(df)
+    di=di.merge(dm,how='inner',left_on='title',right_on='title')
+    di=pd.DataFrame(df)
 
     #building profile
 
-    profile=df.drop('title',axis=1).drop('movieId',axis=1).drop('year',axis=1).drop('genres',axis=1).drop('imdbId',axis=1).drop('tmdbId',axis=1)
+    profile=di.drop('title',axis=1).drop('movieId',axis=1).drop('year',axis=1).drop('genres',axis=1).drop('imdbId',axis=1).drop('tmdbId',axis=1)
     profile=profile.transpose().dot(profile['input_rating'])
 
 
